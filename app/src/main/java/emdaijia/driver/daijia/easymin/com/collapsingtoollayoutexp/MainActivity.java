@@ -1,6 +1,8 @@
 package emdaijia.driver.daijia.easymin.com.collapsingtoollayoutexp;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -8,26 +10,25 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
-import butterknife.Bind;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -107,10 +108,16 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "bar1Txt1 clicked", Toast.LENGTH_SHORT).show();
     }
 
+    @OnClick(R.id.to_tab)
+    void toTab(){
+        startActivity(new Intent(MainActivity.this,TabActivity.class));
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
